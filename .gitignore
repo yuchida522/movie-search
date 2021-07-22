@@ -3,8 +3,9 @@ secrets.sh
 *.log
 *.pot
 *.pyc
-./api/__pycache__/
+./movie_search/movie_search/__pycache__/
 local_settings.py
-db.sqlite3
+./movie_search/db.sqlite3
 db.sqlite3-journal
 media
+node_modules

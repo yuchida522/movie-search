@@ -1,9 +1,9 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
 
-function SearchBar() {
+function SearchBar(props) {
     return (
-        <TextField />
+        <TextField onChange={props.onChange} />
     )
 }
 

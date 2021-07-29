@@ -4,7 +4,7 @@ from rest_framework.response import Response
 import requests
 from django.conf import settings
 
-
+# Create your views here.
 class SearchResult(APIView):
     def get(self, request, query):
 

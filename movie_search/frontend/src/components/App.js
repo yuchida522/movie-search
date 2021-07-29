@@ -9,7 +9,8 @@ function App() {
 		<Router>
 			<Switch>
 				<Route exact path='/' component={Homepage}></Route>
-				<Route exact path='/search-results' component={SearchResults}></Route>
+				<Route exact path='/search-results/:query' component={SearchResults}>
+				</Route>
 			</Switch>
 		</Router>
 	);

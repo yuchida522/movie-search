@@ -1,10 +1,11 @@
-import React, { useState, Component } from 'react';
+import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 import SearchBar from './searchBar'
 import Buttons from './button'
 
 
 const Homepage = () => {
-
+    let history = useHistory();
     const [searchQuery, setSearchQuery] = useState('');
 
     function handleInput(e) {
@@ -13,9 +14,7 @@ const Homepage = () => {
     };
 
     function searchMovies() {
-        fetch(`/the-movie-db/search/${searchQuery}`)
-        .then((result) => result.json())
-        .then((data) => console.log(data))   
+        history.push(`/search-results/${searchQuery}`)
     }
     return (
         <div>

@@ -1,24 +1,29 @@
 import React, { useState, useEffect } from 'react'
+import MovieCard from './movieCard'
 
 const SearchResults = (props) => {
 
-    const [searchResults, setSearchResults] = useState({})
+    const [searchResults, setSearchResults] = useState()
+    const resultsFormatted = []
     
-    console.log(props)
     useEffect(() => {
         getSearchResults()
     }, [])
 
-    function getSearchResults(){
-        fetch(`/search/${props.match.params.query}`)
-        .then((response) => response.json())
-        .then((data) => setSearchResults(data.results))
+    async function getSearchResults(){
+        const response = await fetch(`/search/${props.match.params.query}`)
+        const data = await response.json()
+        setSearchResults(data.results)
     }
 
     console.log("HERE", searchResults)
     return (
         <div>
-        <p>This is the search results page</p>
+        {searchResults && searchResults.map((result, index) => {
+            return (
+                <MovieCard title={result.title} image={result.image}/>
+            )
+        })}
         </div>
     )
 }
